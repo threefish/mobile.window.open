@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>test</title>
+    <meta charset="utf-8" name="viewport"
+          content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=1.0"/>
+</head>
+<script type="text/javascript" src="js/opener_ifarme.js"></script>
+<script>
+function getInput(){
+var str=window.parent.document.getElementById("username").value;
+alert(str)
+}
+
+function setInput(str){
+window.parent.document.getElementById('username').value=str;
+alert('传递成功')
+window.close()
+}
+
+</script>
+<body>
+<div style="color: #258500">
+    我是子页面<br>
+    <input type="button" value="关闭窗口" onclick="window.close()">
+    <input type="button" value="返回上一页" onclick="history.back()">
+    <input type="button" value="调用父窗口方法" onclick="window.parent.test()">
+    <input type="button" value="获取父页面input的值" onclick="getInput()">
+    <input type="button" value="传递值给父页面" onclick="setInput('传递的值')">
+</div>
+</body>
+</html>
