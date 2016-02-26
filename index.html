@@ -4,29 +4,29 @@
     <title>test</title>
     <meta charset="utf-8" name="viewport"
           content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=1.0"/>
-
 </head>
-<script type="text/javascript" src="js/opener_base.js"></script>
+<script type="text/javascript" src="js/opener1.1.js"></script>
 <script>
-    function test(){
+    function test() {
         alert('我是父窗口的方法哦');
     }
-    function openurl(){
+    function openurl() {
         window.open("opener.html");
     }
-    function openfile(){
-        window.open("opener.html",'file');
+    function openfile() {
+        window.open("opener.html", 'file');
     }
 </script>
 <body>
 <div id='content_'>
     <div style="color: #177dff">请在服务器上运行</div>
-我是父窗口的文本内容
+    我是父窗口的文本内容
     <input type="button" value="打开子窗口" onclick="openurl()"><br>
     <input type="button" value="文件下载[采用windows.location.href=url处理]" onclick="openfile()">
-	<form id='form1'>
-	<input type='text' name='username' id='username' value='test'>
-	</form>
-	</div>
+
+    <form id='form1'>
+        <input type='text' name='username' id='username' value='test'>
+    </form>
+</div>
 </body>
 </html>

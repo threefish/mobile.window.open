@@ -3,6 +3,7 @@
  * User: 黄川
  * Date Time: 14-8-11上午10:15
  * @parm content_ 需要把body里面内容全部通过 content_ div控制起来
+ *
  */
 (function (win, doc) {
     var _el = function (id) {
@@ -18,7 +19,9 @@
             that.fun = fun;
         }
         var flag = true;//唯一性
+        var overflowX = true;
         var body = doc.getElementsByTagName("body")[0];
+
         /**
          * 初始化
          */
@@ -27,12 +30,13 @@
             div_ifarme.id = id;
             div_ifarme.setAttribute("style", "position: absolute;left: 0px;top: 0px;display: block;width: auto;z-index: 99999;")
             var div_content = doc.createElement("div");
-            div_content.id='content_';
-            div_content.innerHTML=body.innerHTML;
-            body.innerHTML="";
+            div_content.id = 'content_';
+            div_content.innerHTML = body.innerHTML;
+            body.innerHTML = "";
             body.appendChild(div_content);
             body.appendChild(div_ifarme);
         }
+
         init();
         that.content = _el('content_');
         that.ifarme = _el(id);
@@ -49,6 +53,11 @@
                     that.ifarme.style.display = 'block';
                     var html = "<iframe  style='overflow-x : hidden; overflow-y : hidden;border: none;' src='" + url + "' width='" + window.innerWidth + "' height='" + window.innerHeight + "'></iframe>";
                     that.ifarme.innerHTML = html;
+                    if (document.body.style.overflowX == "" || document.body.style.overflowX == "auto") {
+                        document.body.style.overflowX = 'hidden';
+                    } else {
+                        overflowX = false;
+                    }
                 } else {
                     console.log("请勿重复操作")
                 }
@@ -62,6 +71,9 @@
             that.content.style.display = 'block';
             that.ifarme.style.display = 'none';
             _el(id).innerHTML = '';
+            if (overflowX) {
+                document.body.style.overflowX = '';
+            }
             flag = true;
         }
     }
