@@ -100,7 +100,7 @@
         }
     }
     win.openr_base = openr;
-    win.addEventListener("load", function () {
+    win.addEventListener("DOMContentLoaded", function () {
         var ifarme_ = new openr_base(['content_', 'ifarme_']);
         window.ifarme_ = ifarme_;
         window.open = function (url, urltype) {
