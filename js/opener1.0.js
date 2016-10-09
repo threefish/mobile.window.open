@@ -77,7 +77,7 @@
             flag = true;
         }
     }
-    win.addEventListener("load", function () {
+    win.addEventListener("DOMContentLoaded", function () {
         var ifarme_ = new openr('ifarme_');
         /**
          * opener页面调用函数方法 用ifarme
